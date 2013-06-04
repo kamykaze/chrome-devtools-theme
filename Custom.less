@@ -10,32 +10,37 @@
 // globals
 @font:          #fff;
 @border:        #444;
-@background:    #1d1f21;
-@current-line:  #282a2e;
+@background:    #000;
+@current-line:  #373b41;
 @selection:     lighten(#1d1f21,3%);
 @foreground:    #c5c8c6;
+@font-family:   'TerminusMedium', Menlo, monospace !important;
+@font-size:     14px !important;
 
 //toolbar
 @toolbar-label: #fff;
 @toolbar-label-active: #fff;
-@toolbar-bg: -webkit-linear-gradient(#555, #333);
-@toolbar-bg-active: -webkit-linear-gradient(#444, #333);
-@toolbar-border-top: #C96666;
-@toolbar-border-bottom: #444;
+@toolbar-bg: -webkit-linear-gradient(#373b41, #282a2e);
+@toolbar-bg-active: -webkit-linear-gradient(#707880, #373b41);
+@toolbar-border-top: #81a2be;
+@toolbar-border-bottom: #373b41;
 
 //statusbar
 @statusbar-border:      #444;
 @statusbar-text:        darken(#fff,60%);
 @statusbar-text-active: darken(#fff,15%);
+@status-crumb-text:     #707880;
 
 // html
-@html-attribute-name:  #BBDE57;
-@html-attribute-value: #E4FF9B;
-@html-comment:         #7C7C7C;
-@html-js-node:         #C2C3C3;
-@html-link:            #E3B959;
-@html-tag:             #E3584D;
-@html-text-node:       #C2C3C3;
+@html-attribute-name:  #de935f;
+@html-attribute-value: #b5bd68;
+@html-comment:         #707880;
+@html-js-node:         #b294bb;
+@html-link:            #8abeb7;
+@html-tag:             #F0C674;
+@html-tag-name:        #81a2be;
+@html-close-tag:       #85678f;
+@html-text-node:       #c5c8c6;
 
 // css
 @css-comment:      #7C7C7C;
@@ -69,21 +74,29 @@
 }
 
 #-webkit-web-inspector {
-  
+
     ::selection {
         background: #888;
         opacity: 1;
     }
     
+      .monospace *, .source-code *{
+        font-size: @font-size;
+        font-family: @font-family;
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+        line-height: 130%;
+        font-weight: 100;
+        letter-spacing:1px;
+      }
     
     //Toolbar Styles
     
      #toolbar {
         background: @toolbar-bg !important;
-        border-top: 5px solid @toolbar-border-top !important;
         border-bottom: 1px solid @toolbar-border-bottom !important;
         padding-top: 0 !important;
-        height: 50px !important;
+        height: 70px !important;
         .toolbar-label {
             color: @toolbar-label !important;
         }
@@ -91,15 +104,18 @@
             color: @toolbar-label-active !important;
         }
         .toolbar-item{
-            height: 45px !important;
-            padding: 10px 15px !important;
+            height: 69px !important;
+            padding: 7px 15px !important;
             .toolbar-icon{
                 -webkit-filter: grayscale(.3);
                 -webkit-transform: scale(.9);
             }
             &.toggleable.toggled-on {
-                background: @toolbar-bg-active !important;
+                /*background: @toolbar-bg-active !important;*/
+                background: none !important;
                 padding: 10px 13px !important;
+                border-bottom: 4px solid @toolbar-border-top !important;
+                -webkit-border-image: none !important;
             }
             &.close-left {  
                 padding-right: 22px !important;
@@ -117,7 +133,7 @@
     }
     
     #main {
-        top: 50px !important;
+        top: 70px !important;
     }
     
     #search-results-matches {
@@ -137,7 +153,15 @@
     //Statusbar Styles 
     
     .crumbs .crumb{
-        display: none;
+        text-shadow: none;
+        color: @status-crumb-text;
+        -webkit-border-image: none !important;
+        margin-right: 0 !important;
+        border-right: 1px solid #333 !important;
+        padding-right: 5px !important;
+        &:hover {
+          background: #707880;
+        }
     }
     
     .status-bar{
@@ -246,7 +270,7 @@
     //Console Message Styles
     
     #console-messages {
-      font-family: 'DroidSansMono', Menlo, monospace !important;
+      font-family: @font-family;
       background: @background
     }
     
@@ -381,9 +405,10 @@
     .text-editor-contents,
     .pane.expanded,
     #elements-content,
+    .split-view-sidebar,
     .resource-view.json {
       background: @background !important;
-      font-size: 12px !important;
+      font-size: @font-size !important;
     }
     
     .highlight {
@@ -490,8 +515,15 @@
     
     .webkit-html-tag {
       color: @html-tag !important;
+
+      span {
+        color: @html-close-tag;
+      }
     }
     
+    .webkit-html-tag-name {
+      color: @html-tag-name !important;
+    }
     .webkit-html-attribute-name {
       color: @html-attribute-name !important;
     }
@@ -655,6 +687,7 @@
     
     .outline-disclosure ol li{
         line-height: 16px;
+        color: @foreground;
         &.selected{
             outline: 1px solid rgba(255, 255, 255, .1);
             line-height: 16px;

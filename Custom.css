@@ -10,12 +10,21 @@
   background: #888;
   opacity: 1;
 }
+#-webkit-web-inspector .monospace *,
+#-webkit-web-inspector .source-code * {
+  font-size: 14px;
+  font-family: 'TerminusMedium', Menlo, monospace;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  line-height: 130%;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
 #-webkit-web-inspector #toolbar {
-  background: -webkit-linear-gradient(#555555, #333333) !important;
-  border-top: 5px solid #c96666 !important;
-  border-bottom: 1px solid #444444 !important;
+  background: -webkit-linear-gradient(#373b41, #282a2e) !important;
+  border-bottom: 1px solid #373b41 !important;
   padding-top: 0 !important;
-  height: 50px !important;
+  height: 70px !important;
 }
 #-webkit-web-inspector #toolbar .toolbar-label {
   color: #ffffff !important;
@@ -24,16 +33,20 @@
   color: #ffffff !important;
 }
 #-webkit-web-inspector #toolbar .toolbar-item {
-  height: 45px !important;
-  padding: 10px 15px !important;
+  height: 69px !important;
+  padding: 7px 15px !important;
 }
 #-webkit-web-inspector #toolbar .toolbar-item .toolbar-icon {
   -webkit-filter: grayscale(0.3);
   -webkit-transform: scale(0.9);
 }
 #-webkit-web-inspector #toolbar .toolbar-item.toggleable.toggled-on {
-  background: -webkit-linear-gradient(#444444, #333333) !important;
+  /*background: @toolbar-bg-active !important;*/
+
+  background: none !important;
   padding: 10px 13px !important;
+  border-bottom: 4px solid #81a2be !important;
+  -webkit-border-image: none !important;
 }
 #-webkit-web-inspector #toolbar .toolbar-item.close-left {
   padding-right: 22px !important;
@@ -46,24 +59,32 @@
   margin-top: 12px !important;
 }
 #-webkit-web-inspector #main {
-  top: 50px !important;
+  top: 70px !important;
 }
 #-webkit-web-inspector #search-results-matches {
   color: #eee !important;
   text-shadow: none !important;
 }
 #-webkit-web-inspector #search {
-  background: #1d1f21 !important;
+  background: #000000 !important;
 }
 #-webkit-web-inspector .resources-divider-label {
   color: #ffffff !important;
 }
 #-webkit-web-inspector .crumbs .crumb {
-  display: none;
+  text-shadow: none;
+  color: #707880;
+  -webkit-border-image: none !important;
+  margin-right: 0 !important;
+  border-right: 1px solid #333 !important;
+  padding-right: 5px !important;
+}
+#-webkit-web-inspector .crumbs .crumb:hover {
+  background: #707880;
 }
 #-webkit-web-inspector .status-bar {
   border-color: #444444 !important;
-  background: #1d1f21 !important;
+  background: #000000 !important;
 }
 #-webkit-web-inspector .status-bar-item {
   border-color: #444444 !important;
@@ -152,8 +173,8 @@
   left: -1px !important;
 }
 #-webkit-web-inspector #console-messages {
-  font-family: 'DroidSansMono', Menlo, monospace !important;
-  background: #1d1f21;
+  font-family: 'TerminusMedium', Menlo, monospace;
+  background: #000000;
 }
 #-webkit-web-inspector #console-messages a {
   color: #666 !important;
@@ -233,7 +254,7 @@
 #-webkit-web-inspector #network-container .data-grid,
 #-webkit-web-inspector #network-container .network-summary-bar {
   color: #ffffff;
-  background: #1d1f21 !important;
+  background: #000000 !important;
   border-color: #444444 !important;
 }
 #-webkit-web-inspector #network-container th {
@@ -260,9 +281,10 @@
 #-webkit-web-inspector .text-editor-contents,
 #-webkit-web-inspector .pane.expanded,
 #-webkit-web-inspector #elements-content,
+#-webkit-web-inspector .split-view-sidebar,
 #-webkit-web-inspector .resource-view.json {
-  background: #1d1f21 !important;
-  font-size: 12px !important;
+  background: #000000 !important;
+  font-size: 14px !important;
 }
 #-webkit-web-inspector .highlight {
   color: #F1F1F1;
@@ -285,7 +307,7 @@
   color: rgba(255, 255, 255, 0.85) !important;
   text-shadow: none !important;
   text-overflow: ellipsis !important;
-  background-image: -webkit-linear-gradient(#555555, #333333) !important;
+  background-image: -webkit-linear-gradient(#373b41, #282a2e) !important;
 }
 #-webkit-web-inspector .styles-sidebar-separator:before,
 #-webkit-web-inspector .pane > .title:before {
@@ -324,19 +346,19 @@
   border-color: #fff !important;
 }
 #-webkit-web-inspector .metrics .position {
-  background: #35393c !important;
+  background: #1a1a1a !important;
 }
 #-webkit-web-inspector .metrics .margin {
-  background: #4d5257 !important;
+  background: #333333 !important;
 }
 #-webkit-web-inspector .metrics .border {
-  background: #656c72 !important;
+  background: #4d4d4d !important;
 }
 #-webkit-web-inspector .metrics .padding {
-  background: #7d858d !important;
+  background: #666666 !important;
 }
 #-webkit-web-inspector .metrics .content {
-  background: #989fa5 !important;
+  background: #808080 !important;
 }
 #-webkit-web-inspector .metrics .label,
 #-webkit-web-inspector .metrics .top,
@@ -346,26 +368,32 @@
   color: #fff !important;
 }
 #-webkit-web-inspector .webkit-html-comment {
-  color: #7c7c7c !important;
+  color: #707880 !important;
 }
 #-webkit-web-inspector .webkit-html-tag {
-  color: #e3584d !important;
+  color: #f0c674 !important;
+}
+#-webkit-web-inspector .webkit-html-tag span {
+  color: #85678f;
+}
+#-webkit-web-inspector .webkit-html-tag-name {
+  color: #81a2be !important;
 }
 #-webkit-web-inspector .webkit-html-attribute-name {
-  color: #bbde57 !important;
+  color: #de935f !important;
 }
 #-webkit-web-inspector .webkit-html-attribute-value {
-  color: #e4ff9b !important;
+  color: #b5bd68 !important;
 }
 #-webkit-web-inspector .webkit-html-text-node .webkit-html-css-node {
-  color: #c2c3c3 !important;
+  color: #c5c8c6 !important;
 }
 #-webkit-web-inspector .webkit-html-js-node {
-  color: #c2c3c3 !important;
+  color: #b294bb !important;
 }
 #-webkit-web-inspector .webkit-html-resource-link,
 #-webkit-web-inspector .webkit-html-external-link {
-  color: #e3b959 !important;
+  color: #8abeb7 !important;
 }
 #-webkit-web-inspector .webkit-css-comment {
   color: #7c7c7c !important;
@@ -473,6 +501,7 @@
 }
 #-webkit-web-inspector .outline-disclosure ol li {
   line-height: 16px;
+  color: #c5c8c6;
 }
 #-webkit-web-inspector .outline-disclosure ol li.selected {
   outline: 1px solid rgba(255, 255, 255, 0.1);
@@ -529,8 +558,8 @@
   background: #333 !important;
 }
 #-webkit-web-inspector .placard.selected {
-  background-image: -webkit-linear-gradient(#c96666, #6f2727) !important;
-  border-top-color: #6f2727 !important;
+  background-image: -webkit-linear-gradient(#81a2be, #38556e) !important;
+  border-top-color: #38556e !important;
 }
 #-webkit-web-inspector .placard .title {
   color: #CCC !important;
