@@ -1,9 +1,13 @@
 /**********************************************/
 /*
-/* mnml Theme for Chrome DevTools by Michael P. Pfeiffer
+/* Hybrid Theme for Chrome DevTools by Kam Kuo
 /*
-/* Based on a Gist by Ben Truyman. Further attr:
-/* https://gist.github.com/3040634
+/* based on Andrew Wong's hybrid vim theme
+/* https://github.com/w0ng/vim-hybrid
+/*
+/* and the mnml Theme for Chrome DevTools by
+/* Michael P. Pfeiffer
+/* https://github.com/frontdevDE/mnml-devtools-theme
 /*
 /**********************************************/
 #-webkit-web-inspector ::selection {
